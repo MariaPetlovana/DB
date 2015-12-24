@@ -1,0 +1,37 @@
+module me {
+    module az1 {
+        module dblab {
+            module Common {
+                interface DatabaseControllerCorba {
+                    typedef octet int8;
+                    typedef long int32;
+                    typedef int32 int64[2];
+                    typedef sequence<int8> int8arr;
+                    typedef sequence<int64> int64arr;
+                    typedef string Scheme;
+
+                    boolean IsOpened();
+                    void NewDatabase();
+                    void LoadDatabase(in string path);
+                    void SaveDatabase(in string path);
+                    void CloseDatabase();
+                    int64arr DatabaseGetTableVersions();
+                    int64 DatabaseAddEmptyTable(in Scheme scheme, in string name);
+                    boolean DatabaseRemoveTable(in int64 version);
+                    int64arr DatabaseGetTableRowVersions(in int64 version);
+                    int32 DatabaseSize();
+                    int32 DatabaseTableSize(in int64 version);
+                    string DatabaseTableName(in int64 version);
+                    int32 DatabaseTableRowLength(in int64 version);
+                    int64 DatabaseTableAddEmptyRow(in int64 version);
+                    boolean DatabaseTableRemoveRow(in int64 tableVersion, in int64 rowVersion);
+                    int8arr DatabaseTableGetField(in int64 tableVersion, in int64 rowVersion, in int32 column);
+                    string DatabaseTableGetFieldString(in int64 tableVersion, in int64 rowVersion, in int32 column);
+                    void DatabaseTableSetFieldData(in int64 tableVersion, in int64 rowVersion, in int32 column, in int8arr value);
+                    void DatabaseTableSetFieldString(in int64 tableVersion, in int64 rowVersion, in int32 column, in string strValue);
+                    int64 DatabaseTableFind(in int64 tableVersion, in string pattern);
+                };
+            };
+        };
+    };
+};

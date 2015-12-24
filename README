@@ -1,0 +1,89 @@
+4) Local
+
+# common:
+mvn package
+# client:
+sh run_java_local_gui.sh
+
+5) RMI JRMP
+
+# common:
+mvn package
+# server:
+sh run_jrmp_server.sh
+# client:
+sh run_java_jrmi_gui.sh
+
+6) RMI IIOP
+
+# once until reboot:
+sh run_orbd.sh&
+# common:
+mvn package
+# server:
+sh run_iiop_server.sh
+# client:
+sh run_java_iiop_gui.sh
+
+7) Corba
+
+# once until reboot:
+sh run_orbd.sh&
+# common:
+mvn package
+# server:
+sh run_corba_server.sh
+# client:
+sh run_java_corba_gui.sh
+
+8) Reflection
+
+mvn package
+sh run_reflection.sh
+
+9) Web services
+
+# common:
+mvn package
+# server:
+sh run_web_service_server.sh
+# client:
+sh run_java_web_service_gui.sh
+
+10) Web services, python gui
+
+sh run_py_gui.sh
+
+11) Compatibility: Corba server, IIOP client
+
+# once until reboot:
+sh run_orbd.sh&
+# common:
+mvn package
+# server:
+sh run_corba_server.sh
+# client:
+sh run_java_iiop_to_corba_gui.sh
+
+12-13) Java servlet, Ajax
+
+# DEMO: http://laba-webserver.herokuapp.com/db_gui.servlet
+# CODE: src/main/java/me/az1/dblab/Client/GuiServlet.java
+# CODE: src/main/java/me/az1/dblab/Client/GuiServletAjax.java
+
+14) Android
+
+# andr_all.sh
+# App name: klab
+# klab-1.0-release-unsigned.apk
+
+15) Heroku
+
+http://laba-webservice.herokuapp.com/ws_db?wsdl
+# sh deploy_ws.sh
+
+16) JSP
+
+# DEMO: http://laba-webserver.herokuapp.com/db_gui.jsp
+# CODE: /Users/artemhb/Dropbox/stuff/kuz/lab/vova/src/main/webapp/controller.jsp
+# CODE: /Users/artemhb/Dropbox/stuff/kuz/lab/vova/src/main/webapp/db_gui.jsp
